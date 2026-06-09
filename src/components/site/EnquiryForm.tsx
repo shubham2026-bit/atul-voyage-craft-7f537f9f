@@ -71,7 +71,7 @@ export function EnquiryForm() {
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href={SITE.whatsappUrl} target="_blank" rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-[#25D366] px-5 py-2.5 font-semibold text-white shadow-md hover:opacity-90">
-            <MessageCircle className="h-4 w-4" /> Chat with us on WhatsApp
+            <WhatsAppIcon className="h-5 w-5" /> Continue on WhatsApp →
           </a>
           <Button variant="outline" onClick={() => { setDone(false); setForm({ ...form, notes: "", pickup: "", drop_location: "" }); }}>
             Send Another

@@ -155,7 +155,7 @@ function Hero() {
               <div className="font-display text-lg font-semibold text-gold">Quick Enquiry</div>
               <p className="mt-1 text-sm text-white/70">Tell us where, we'll arrange the ride.</p>
               <div className="mt-6 space-y-3 text-sm">
-                {["✓ Licensed & insured cars", "✓ Trained, polite chauffeurs", "✓ Transparent pricing — no hidden charges", "✓ On-time pickup, every time", "✓ 24/7 customer support"].map(t => (
+                {["✓ Licensed & insured cars", "✓ Trained, polite chauffeurs", "✓ No hidden charges", "✓ On-time pickup, every time", "✓ 24/7 customer support"].map(t => (
                   <div key={t} className="flex items-center gap-2 text-white/85">{t}</div>
                 ))}
               </div>
@@ -175,7 +175,7 @@ function TrustBar() {
     { icon: BadgeCheck, t: "Licensed Operator" },
     { icon: Users, t: "Trained Chauffeurs" },
     { icon: Shield, t: "Sanitized Cars" },
-    { icon: Award, t: "Transparent Pricing" },
+    { icon: Award, t: "Trusted Service" },
     { icon: Clock, t: "On-Time Pickup" },
   ];
   return (

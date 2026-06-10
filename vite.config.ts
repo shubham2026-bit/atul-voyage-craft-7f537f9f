@@ -1,4 +1,3 @@
-Modified
 vite.config.ts
 // @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
 // or the app will break with duplicate plugins:

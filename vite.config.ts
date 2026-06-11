@@ -6,7 +6,27 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// On Vercel (VERCEL=1 is set automatically), force-enable nitro with the
+// "vercel" preset so the build emits .vercel/output (Build Output API).
+// This fixes "No Output Directory found", post-deploy 404s, and the
+// "skipping nitro deploy plugin" warning — while keeping server functions
+// (enquiry form, admin auth) working as Vercel serverless functions.
+// Outside Vercel, leave it undefined so Lovable's default target is used.
+const isVercel = !!process.env.VERCEL;
+
 export default defineConfig({
+  nitro: isVercel
+    ? {
+        preset: "vercel",
+        // Use the Vercel preset's native Build Output API layout so Vercel
+        // auto-detects .vercel/output (no outputDirectory setting needed).
+        output: {
+          dir: "{{ rootDir }}/.vercel/output",
+          serverDir: "{{ output.dir }}/functions/__server.func",
+          publicDir: "{{ output.dir }}/static/{{ baseURL }}",
+        },
+      }
+    : undefined,
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
